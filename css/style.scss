@@ -9,10 +9,11 @@ $primaryColor: #53713D;
 
 body {
     font-family: 'Roboto', sans-serif;
+    overflow: auto;
 }
 
 .background {
-    position: absolute;
+    position: fixed;
     width: 100vw;
     height: 100vh;
     background-position: center;
@@ -44,7 +45,7 @@ nav {
     color: white;
     font-weight: bold;
     background: rgba(0,0,0,0.5);
-    position: absolute;
+    position: fixed;
     height: 100%;
     display: flex;
     justify-content: right;
@@ -66,12 +67,14 @@ nav {
 }
 
 .about.active, .gallery.active {
+    display: block;
     right: 0;
     transition: .5s all ease-in;
     animation-name: slideOut;
 }
 
 .about {
+    display: none;
     position: absolute;
     right: -100%;
     min-height: 100%;
@@ -165,6 +168,7 @@ nav {
 }
 
 .gallery {
+    display: none;
     position: absolute;
     right: -100%;
     min-height: 100%;
@@ -181,6 +185,64 @@ nav {
         color: white;
         -webkit-text-stroke: 2px $primaryColor;
     }
+
+    p {
+        text-align: center;
+        font-size: 1.3rem;
+        letter-spacing: .2rem;
+        margin-top: 50px;
+        color: $primaryColor;
+        line-height: 50px;
+    }
+
+    .images-container {
+        padding: 50px;
+        width: 100%;
+        // display: grid;
+        // grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        // grid-column-gap: 1em;
+        display: flex;
+        flex-wrap: wrap;
+        // flex-basis: 20%;
+    }
+}
+
+.image-container {
+    position: relative;
+    display: inline-block;
+    // width: 20%;
+    flex: 1 0 21%; /* explanation below */
+    // border: 4px solid $primaryColor;
+    
+    img {
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.image-container:hover {
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    right: 0;
+    background: rgba(0,0,0,0.6);
+}
+
+.modal img {
+    transform: translateX(10%);
+}
+
+.modal.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @keyframes slideIn {
@@ -200,4 +262,3 @@ nav {
         transform: translateX(100%);
     }
 }    
-
