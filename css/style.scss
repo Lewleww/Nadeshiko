@@ -43,14 +43,14 @@ body {
 nav {
     color: white;
     font-weight: bold;
-    
+    background: rgba(0,0,0,0.5);
     position: absolute;
-    width: 100%;
     height: 100%;
     display: flex;
     justify-content: right;
     align-items: center;
-    right: 50px;
+    width: 15%;
+    padding-right: 5px;
 
     ul {
         list-style: none;
@@ -65,12 +65,20 @@ nav {
     
 }
 
-.about.active {
-    position: absolute;
+.about.active, .gallery.active {
     right: 0;
-    height: 100%;
+    transition: .5s all ease-in;
+    animation-name: slideOut;
+}
+
+.about {
+    position: absolute;
+    right: -100%;
+    min-height: 100%;
     width: 85%;
     background: #F1F3ED;
+    transition: .5s all ease-in;
+    animation-name: slideIn;
 
     h1 {
         text-align: center;
@@ -116,7 +124,7 @@ nav {
     margin-top: 20px;
     transform: translate(-50%);
     background: white;
-    width: 420px;
+    max-width: 420px;
     display: flex;
     padding: 15px;
     border: 2px solid $primaryColor;
@@ -156,6 +164,40 @@ nav {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%313131' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
 }
 
-@media (min-width: 800px) {
-    
+.gallery {
+    position: absolute;
+    right: -100%;
+    min-height: 100%;
+    width: 85%;
+    background: #F1F3ED;
+    transition: .5s all ease-in;
+    animation-name: slideIn;
+
+    h1 {
+        text-align: center;
+        font-size: 2.5rem;
+        letter-spacing: .2rem;
+        margin-top: 50px;
+        color: white;
+        -webkit-text-stroke: 2px $primaryColor;
+    }
 }
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}    
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}    
+
