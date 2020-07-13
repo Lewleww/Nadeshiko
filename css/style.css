@@ -7,7 +7,7 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  overflow: auto;
+  overflow-x: hidden;
 }
 
 .background {
@@ -83,7 +83,6 @@ nav li:hover {
 }
 
 .about {
-  display: none;
   position: absolute;
   right: -100%;
   min-height: 100%;
@@ -193,7 +192,6 @@ nav li:hover {
 }
 
 .gallery {
-  display: none;
   position: absolute;
   right: -100%;
   min-height: 100%;
@@ -209,7 +207,8 @@ nav li:hover {
   text-align: center;
   font-size: 2.5rem;
   letter-spacing: .2rem;
-  margin-top: 50px;
+  display: none;
+  display: none;
   color: white;
   -webkit-text-stroke: 2px #53713D;
 }
