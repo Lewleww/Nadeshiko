@@ -29,5 +29,13 @@ home_btn.addEventListener('click', () => {
     gallery_btn.innerText = 'GALLERY'
 })
 
+//Close modal if you click outside image
+window.addEventListener('click', (e) => {
+    if (e.target == modal) {
+        modal.style.display = 'none'
+    }
+})
+
+
 
 

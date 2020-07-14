@@ -31,26 +31,22 @@ function populateGallery() {
     document.getElementById('images-container').innerHTML = dom;
 }
 
+function modalUpdate() {
+    const modal = document.getElementById('modal')
+    const images = document.querySelectorAll('.gallery-image')
+    images.forEach( image => {
+        image.addEventListener('click', () => {
+            let imagePath = image.querySelector('img').src
+            //Open Modal with correct details
+            modal.style.display = 'flex'
+            modal.classList.add('active')
+            
+            document.getElementById('chosen-image-link').href = imagePath
+            document.getElementById('chosen-image').src = imagePath
+        })
+    })    
+}
+
 populateGallery()
+modalUpdate()
 
-const modal = document.getElementById('modal')
-const images = document.querySelectorAll('.gallery-image')
-
-images.forEach( image => {
-    image.addEventListener('click', () => {
-        let imagePath = image.querySelector('img').src
-        //Open Modal with correct details
-        modal.style.display = 'flex'
-        modal.classList.add('active')
-        
-        document.getElementById('chosen-image-link').href = imagePath
-        document.getElementById('chosen-image').src = imagePath
-    })
-})
-
-//Close modal if you click outside image
-window.addEventListener('click', (e) => {
-    if (e.target == modal) {
-        modal.style.display = 'none'
-    }
-})
