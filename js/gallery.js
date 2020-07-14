@@ -1,4 +1,4 @@
-const numOfImages = 35
+const numOfImages = 51
 let imageArr = []
 
 function createImageArray() {

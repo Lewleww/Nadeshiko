@@ -10,6 +10,7 @@ about_btn.addEventListener('click', () => {
     home_btn.innerText = 'HOME'
     about_btn.innerText = '> ABOUT'
     gallery_btn.innerText = 'GALLERY'
+    window.scrollTo(0, 0)
 })
 
 gallery_btn.addEventListener('click', () => {
